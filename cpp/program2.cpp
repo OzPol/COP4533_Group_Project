@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <tuple>
+
+using namespace std;
 /* Solution to program 2
 * @param n the number of sculptures
 * @param W the maximum width of the platform

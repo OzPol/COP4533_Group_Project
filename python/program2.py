@@ -1,11 +1,20 @@
 from typing import List, Tuple
 
-# Helper Function
-def find_peak(heights: List[int]) -> int:
-    for i in range(1, len(heights)):
-        if heights[i] > heights[i - 1]:
-            return i - 1
-    return len(heights) - 1
+# Helper function to find the valley (local minimum)
+def find_valley(heights: List[int]) -> int:
+    """
+    Finds the index of the local minimum (valley) in the sequence.
+    The valley is where the sequence transitions from non-increasing to non-decreasing.
+    """
+    n = len(heights)
+
+    # Look for the transition from decreasing to increasing
+    for i in range(1, n):
+        if heights[i] > heights[i - 1]:  # Found the transition point
+            return i - 1  # Index of the local minimum (valley)
+
+    # If no transition is found, the last element is the minimum
+    return n - 1
 
 def program2(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int, int, List[int]]:
     """
@@ -26,51 +35,66 @@ def program2(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
     # Add you code here
     ############################
 
-    platforms = []
-    current_platform = []
-    current_width = 0
-    current_max_height = 0
-    
-    # Find the peak point where heights stop decreasing
-    peak = find_peak(heights)
+    # --- Constraints Checks ---
+    if any(h < 0 for h in heights) or any(w < 0 for w in widths) or n < 0 or W < 0:
+        raise ValueError("All inputs must be non-negative.")
 
-    # Traverse left of peak (non-increasing)
-    for i in range(peak + 1):
+    if len(heights) != n or len(widths) != n:
+        raise ValueError("The number of heights and widths must match the number of sculptures.")
+
+    # Find the valley (local minimum) in the unimodal sequence
+    valley = find_valley(heights)
+
+    platforms = []  # Store the number of sculptures on each platform
+    current_platform = []  # Track sculptures on the current platform
+    current_width = 0  # Track the width used on the current platform
+    current_max_height = 0  # Track the max height on the current platform
+
+    # --- Traverse Left Side of the Valley (non-increasing) ---
+    for i in range(valley + 1):
         if current_width + widths[i] <= W:
-            current_platform.append(i + 1)
+            current_platform.append(i + 1)  # Store 1-based index of sculpture
             current_width += widths[i]
             current_max_height = max(current_max_height, heights[i])
         else:
+            # Finalize the current platform
             platforms.append((current_max_height, len(current_platform)))
+            # Start a new platform
             current_platform = [i + 1]
             current_width = widths[i]
             current_max_height = heights[i]
-    
+
+    # Add the last platform on the left side
     platforms.append((current_max_height, len(current_platform)))
-    
+
     # Reset for the right side traversal
     current_platform = []
     current_width = 0
     current_max_height = 0
 
-    # Traverse right of peak (non-decreasing)
-    for i in range(peak + 1, n):
+    # --- Traverse Right Side of the Valley (non-decreasing) ---
+    for i in range(valley + 1, n):
         if current_width + widths[i] <= W:
-            current_platform.append(i + 1)
+            current_platform.append(i + 1)  # Store 1-based index of sculpture
             current_width += widths[i]
             current_max_height = max(current_max_height, heights[i])
         else:
+            # Finalize the current platform
             platforms.append((current_max_height, len(current_platform)))
+            # Start a new platform
             current_platform = [i + 1]
             current_width = widths[i]
             current_max_height = heights[i]
-    
+
+    # Add the last platform on the right side
     platforms.append((current_max_height, len(current_platform)))
 
+    # Calculate total height and number of sculptures per platform
     total_height = sum(platform[0] for platform in platforms)
     num_statues = [platform[1] for platform in platforms]
 
     return len(platforms), total_height, num_statues
+
 
 if __name__ == '__main__':
     n, W = map(int, input().split())
