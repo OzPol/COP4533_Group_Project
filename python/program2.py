@@ -39,61 +39,57 @@ def program2(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
     if any(h < 0 for h in heights) or any(w < 0 for w in widths) or n < 0 or W < 0:
         raise ValueError("All inputs must be non-negative.")
 
-    if len(heights) != n or len(widths) != n:
-        raise ValueError("The number of heights and widths must match the number of sculptures.")
+#    if len(heights) != n or len(widths) != n:
+#        raise ValueError("The number of heights and widths must match the number of sculptures.")
+
+#    if not all(heights[i] >= heights[i + 1] for i in range(valley)) or \
+#        not all(heights[i] <= heights[i + 1] for i in range(valley, n - 1)):
+#        raise ValueError("Heights must be unimodal (increase to a peak and then decrease).")
 
     # Find the valley (local minimum) in the unimodal sequence
     valley = find_valley(heights)
+    
+    # Try to fit all sculptures on a single platform if possible
+    total_width = sum(widths)
+    max_height = max(heights)
+    if total_width <= W:
+        # All sculptures fit on one platform
+        return 1, max_height, [n]
 
     platforms = []  # Store the number of sculptures on each platform
-    current_platform = []  # Track sculptures on the current platform
+    sculptures_per_platform = []  # Track sculptures on the current platform
     current_width = 0  # Track the width used on the current platform
     current_max_height = 0  # Track the max height on the current platform
+    current_count = 0
+    
+    def add_platform():
+        """Finalize the current platform only if it contains sculptures."""
+        nonlocal current_width, current_max_height, current_count
+        if current_count > 0:  # Only add non-empty platforms
+            platforms.append(current_max_height)
+            sculptures_per_platform.append(current_count)
+        current_width, current_max_height, current_count = 0, 0, 0
 
-    # --- Traverse Left Side of the Valley (non-increasing) ---
+    # Traverse the left side of the valley (non-increasing)
     for i in range(valley + 1):
-        if current_width + widths[i] <= W:
-            current_platform.append(i + 1)  # Store 1-based index of sculpture
-            current_width += widths[i]
-            current_max_height = max(current_max_height, heights[i])
-        else:
-            # Finalize the current platform
-            platforms.append((current_max_height, len(current_platform)))
-            # Start a new platform
-            current_platform = [i + 1]
-            current_width = widths[i]
-            current_max_height = heights[i]
+        if current_width + widths[i] > W:
+            add_platform()
+        current_width += widths[i]
+        current_max_height = max(current_max_height, heights[i])
+        current_count += 1
+    add_platform()  # Finalize the last platform on the left side
 
-    # Add the last platform on the left side
-    platforms.append((current_max_height, len(current_platform)))
-
-    # Reset for the right side traversal
-    current_platform = []
-    current_width = 0
-    current_max_height = 0
-
-    # --- Traverse Right Side of the Valley (non-decreasing) ---
+    # Traverse the right side of the valley (non-decreasing)
     for i in range(valley + 1, n):
-        if current_width + widths[i] <= W:
-            current_platform.append(i + 1)  # Store 1-based index of sculpture
-            current_width += widths[i]
-            current_max_height = max(current_max_height, heights[i])
-        else:
-            # Finalize the current platform
-            platforms.append((current_max_height, len(current_platform)))
-            # Start a new platform
-            current_platform = [i + 1]
-            current_width = widths[i]
-            current_max_height = heights[i]
+        if current_width + widths[i] > W:
+            add_platform()
+        current_width += widths[i]
+        current_max_height = max(current_max_height, heights[i])
+        current_count += 1
+    add_platform()  # Finalize the last platform on the right side
 
-    # Add the last platform on the right side
-    platforms.append((current_max_height, len(current_platform)))
-
-    # Calculate total height and number of sculptures per platform
-    total_height = sum(platform[0] for platform in platforms)
-    num_statues = [platform[1] for platform in platforms]
-
-    return len(platforms), total_height, num_statues
+    total_height = sum(platforms)
+    return len(platforms), total_height, sculptures_per_platform
 
 
 if __name__ == '__main__':
