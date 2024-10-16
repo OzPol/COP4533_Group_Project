@@ -61,6 +61,7 @@ def program2(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
     current_width = 0  # Track the width used on the current platform
     current_max_height = 0  # Track the max height on the current platform
     current_count = 0
+    valley_added = False  # Track if the valley was added to the left side
     
     def add_platform():
         """Finalize the current platform only if it contains sculptures."""
@@ -87,6 +88,7 @@ def program2(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
         current_max_height = max(current_max_height, heights[i])
         current_count += 1
     add_platform()  # Finalize the last platform on the right side
+    
 
     total_height = sum(platforms)
     return len(platforms), total_height, sculptures_per_platform
