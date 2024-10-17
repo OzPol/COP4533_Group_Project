@@ -144,40 +144,56 @@ if __name__ == '__main__':
 
 
 """
-ProblemS2: Unimodal Heights
-In this case, the heights follow a unimodal pattern.
-The heights decrease up to a certain point and then increase again.
-The greedy strategy here needs to respect the unimodal structure
-by treating the sequence as two separate parts: one where the heights decrease,
-and one where they increase. Sculptures from the left side are packed first,
-followed by sculptures from the right side.
+Explanation:
 
-Keyword arguments:
-argument -- description
-Return: return_description
+This program arranges sculptures with unimodal heights (first decreasing, then increasing)
+onto platforms while minimizing the total height and the number of platforms.
 
-Algorithm2 (for ProblemS2):
-1. Identify the peak point k where the heights stop decreasing and begin increasing.
-2. Traverse the left portion (before the peak), packing sculptures as long as width permits.
-3. Then, traverse the right portion (after the peak) using a similar packing strategy.
-4. Return the total platforms and the minimized cost.
+Algorithm Steps:
+1. Find the Valley:
+- Identify the index where the heights transition from decreasing to increasing.
+- This is done using the find_valley function.
 
-"""
+2. Process Left Partition (Before the Valley):
+- Iterate from index 0 to valley - 1.
+- Add sculptures to the current platform until the width limit W is exceeded.
+- When the limit is exceeded, finalize the current platform and start a new one.
+- Keep track of the maximum height on each platform.
 
-# Notes: 
-# This greedy algorithm works by iterating through the sculptures and placing them on platforms as long as their widths fit. 
-# When the width limit is exceeded, a new platform is created.
-# The goal is to minimize the total number of platforms and the total height.
+3. Process Right Partition (After the Valley):
+- Iterate from index n - 1 down to valley + 1, in reverse to maintain order.
+- Similar to the left partition, add sculptures to platforms based on width constraints.
+- Reverse the lists at the end to restore the original order.
 
-# 1. Platforms: A list to store the details of each platform.
-# 2. current_platform: Tracks the sculptures on the current platform.
-# 3. current_width: Tracks the sum of widths of the sculptures on the current platform.
-# 4. current_max_height: Keeps the height of the tallest sculpture on the current platform.
-# 5. When the width limit is exceeded, the current platform is "finalized," and a new platform is started.
+4. Handle the Valley Sculpture:
+- Attempt to add the valley sculpture to the last left platform if possible.
+- Conditions: Total width does not exceed W.
+- If not possible, attempt to add it to the first right platform.
+- If neither is possible, the valley sculpture gets its own platform.
 
+5. Combine Platforms and Calculate Total Height:
+- Merge the left and right platforms.
+- Compute the total height by summing the maximum heights of all platforms.
+- Return the number of platforms, total height, and the number of sculptures on each platform.
 
-"""
-Program1 handles the monotonically non-increasing heights (ProblemS1), where it simply packs sculptures from left to right.
-Program2 deals with the unimodal heights (ProblemS2), first packing sculptures before the peak and then handling the sculptures after the peak.
-Keep in mind that the heights are unimodal, meaning they increase and then decrease.
+Key Points:
+- Order Preservation: The sculptures are arranged in their original order.
+- Width Constraint: No platform exceeds the maximum width W.
+- Height Minimization: By grouping sculptures carefully, the total height is minimized.
+- Valley Handling: Special care is taken to place the valley sculpture efficiently.
+
+Variables:
+- left_platforms: Stores platforms from the left partition.
+- right_platforms: Stores platforms from the right partition (reversed to maintain order).
+- current_width: Tracks the cumulative width of sculptures on the current platform.
+- current_max_height: Tracks the maximum height on the current platform.
+- current_count: Counts the number of sculptures on the current platform.
+- platforms: Combined list of all platforms.
+- sculptures_per_platform: Number of sculptures on each platform.
+- total_height: Sum of the tallest sculptures on each platform.
+
+Usage:
+- Run the program and input n and W.
+- Provide the list of heights and widths.
+- The program outputs the number of platforms, total height, and sculptures per platform.
 """
