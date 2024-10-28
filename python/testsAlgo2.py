@@ -153,6 +153,7 @@ class TestAlgo2(unittest.TestCase):
         self.assertEqual(sculptures_per_platform, expected_sculptures_per_platform, "Sculptures per platform do not match the expected value.")
 
     def test_case_12(self):
+        # multiple possible solutions
         n = 5
         W = 10
         heights = [35, 15, 15, 5, 10]
@@ -168,6 +169,7 @@ class TestAlgo2(unittest.TestCase):
         self.assertEqual(sculptures_per_platform, expected_sculptures_per_platform, "Sculptures per platform do not match the expected value.")
 
     def test_case_13(self):
+        # multiple possible solutions
         n = 6
         W = 10
         heights = [35, 15, 10, 5, 15, 20]
@@ -183,6 +185,7 @@ class TestAlgo2(unittest.TestCase):
         self.assertEqual(sculptures_per_platform, expected_sculptures_per_platform, "Sculptures per platform do not match the expected value.")
 
     def test_case_14(self):
+        # multiple possible solutions
         n = 6
         W = 10
         heights = [35, 15, 10, 5, 10, 15]
@@ -198,6 +201,7 @@ class TestAlgo2(unittest.TestCase):
         self.assertEqual(sculptures_per_platform, expected_sculptures_per_platform, f"Expected {expected_sculptures_per_platform} sculptures per platform, but received {sculptures_per_platform}.")
 
     def test_case_15(self):
+        # multiple possible solutions
         n = 6
         W = 10
         heights = [35, 15, 10, 5, 75, 85]

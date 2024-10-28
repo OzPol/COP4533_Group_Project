@@ -1,6 +1,6 @@
 import unittest
 import sys
-from program2 import program2 as program
+from program3 import program3 as program
 
 class TestProblemG(unittest.TestCase):
     def testcase_1(self):
@@ -145,6 +145,104 @@ class TestProblemG(unittest.TestCase):
         output = program(n, W, heights, widths)
 
         self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    # custom tests start from here
+    def testcase_12(self):
+        n = 1
+        W = 10
+        heights = [15]
+        widths = [9]
+
+        expected_output = (1, 15, [1])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_13(self):
+        n = 5
+        W = 10
+        heights = [15, 5, 10, 5, 20]
+        widths = [2, 2, 2, 2, 2]
+
+        expected_output = (1, 20, [5])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_14(self):
+        n = 6
+        W = 10
+        heights = [35, 15, 15, 5, 10, 10]
+        widths = [1, 2, 3, 4, 5, 5]
+
+        expected_output = (2, 45, [4, 2])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_15(self):
+        n = 6
+        W = 10
+        heights = [35, 15, 15, 5, 10, 10]
+        widths = [1, 2, 3, 5, 4, 6]
+
+        expected_output = (3, 50, [3, 1, 2])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_16(self):
+        n = 5
+        W = 10
+        heights = [35, 15, 15, 5, 10]
+        widths = [1, 2, 3, 5, 4]
+
+        expected_output = (2, 45, [3, 2])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_17(self):
+        n = 6
+        W = 10
+        heights = [35, 15, 15, 5, 10, 10]
+        widths = [1, 2, 3, 5, 4, 7]
+
+        expected_output = (3, 55, [3, 2, 1])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+    
+    def testcase_18(self):
+        n = 6
+        W = 10
+        heights = [35, 15, 10, 5, 10, 15]
+        widths = [3, 3, 2, 1, 1, 10]
+
+        expected_output = (2, 50, [5, 1])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
+    def testcase_19(self):
+        n = 4
+        W = 2
+        heights = [1, 2, 3, 4]
+        widths = [2, 2, 2, 2]
+
+        expected_output = (4, 10, [1, 1, 1, 1])
+
+        output = program(n, W, heights, widths)
+
+        self.assertEqual(output, expected_output, f"expected {expected_output} but received {output}")
+
 
 if __name__ == "__main__":
     unittest.main()
