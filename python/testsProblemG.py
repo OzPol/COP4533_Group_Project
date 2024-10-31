@@ -1,7 +1,10 @@
 import unittest
 import sys
 # from program3 import program3 as program
-from program4 import program4 as program
+# from program4 import program4 as program
+# from program5B import program5B as program
+from program5A import program5A as program
+
 class TestProblemG(unittest.TestCase):
     def testcase_1(self):
         # example1 from pdf
