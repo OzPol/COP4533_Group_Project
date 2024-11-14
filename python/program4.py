@@ -20,6 +20,10 @@ def program4(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
     # The below variables each represent a row in a 3D array
     # We create them separately instead of a nxnxn array to make things simpler to manage
 
+    # Base case: if there are no sculptures, return zeroes
+    if n == 0:
+        return 0, 0, []
+    
     min_cost = [float('inf')] * n # DP array to track the minimum cumulative height cost up to each sculpture added  
     platforms = [0] * n  # To track the number of platforms used to get each minimum height cost in min_cost
     sculptures_on_last_platforms = [0] * n  # To track the number of sculptures placed on the *last* platform used to reach each min_cost

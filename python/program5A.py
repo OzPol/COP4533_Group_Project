@@ -16,6 +16,11 @@ def program5A(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[in
     int: optimal total height
     List[int]: number of statues on each platform
     """
+    
+        # Base case: if there are no sculptures, return zeroes
+    if n == 0:
+        return 0, 0, []
+    
     # memoization arrays
     min_cost_memo = [-1] * n  # tracks the min cumulative height cost up to each sculpture added
     platforms = [-1] * n  # tracks the number of platforms used to get each min_cost 
