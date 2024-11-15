@@ -35,7 +35,7 @@ def program5A(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[in
     def find_min_cost(i):
         """Recursive helper function to find the minimum cost up to index i."""
         if i == 0:
-            # base case: single sculpture 
+            # Initial case: single sculpture 
             platforms[0] = 1 
             sculptures_on_last_platforms[0] = 1 
             min_cost_memo[0] = heights[0]

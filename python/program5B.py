@@ -26,7 +26,7 @@ def program5B(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[in
     sculptures_on_last_platforms = [0] * n  # To track the number of sculptures placed on the *last* platform used to reach each min_cost
    
     # precompute cumulative widths up to each sculpture
-    # we have one extra element (0) to simplify the calculations of subarray widths and keep consistency across all cases
+    # we have one extra element (0) to simplify the calculations of sub-array widths and keep consistency across all cases
     cumulative_width = [0] * (n + 1)
     for i in range(1, n+1):
         cumulative_width[i] = cumulative_width[i-1] + widths[i-1] 
@@ -34,12 +34,12 @@ def program5B(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[in
     for i in range(n): 
         # loops through every sculpture, starting at position 0
         # i represents the last sculpture on the current platform
-        # base case: First sculpture is on a single platform with height equal to its height
+        # Initial case: First sculpture is on a single platform with height equal to its height
         platform_max_height = 0
 
         for j in range(i, -1, -1):
-            # j represents the first sculpture on the current platform that ends at positon i
-            # here we explore all different possible subarrays in this range 
+            # j represents the first sculpture on the current platform that ends at position i
+            # here we explore all different possible sub-arrays in this range 
             # and determine which one of them produces the minimum height cost
             platform_max_height = max(platform_max_height, heights[j])
                 
