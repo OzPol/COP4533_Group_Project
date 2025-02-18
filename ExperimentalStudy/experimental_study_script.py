@@ -70,8 +70,6 @@ for size in test_sizes:
     
     # Test each program and record runtimes
     for program, label in zip(
-        # [program1, program2, program3, program4, program5A, program5B],
-        # ['Program1', 'Program2', 'Program3', 'Program4', 'Program5A', 'Program5B'],
         [program1, program2, program4, program5A, program5B],
         ['Program1', 'Program2', 'Program4', 'Program5A', 'Program5B']
     ):
