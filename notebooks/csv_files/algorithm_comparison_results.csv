@@ -1,0 +1,61 @@
+TestCase#,Sequence Type,Input,P2 Platforms,P5B Platforms,P2 Height,P5B Height,Cost Diff
+1,Non-Increasing,"n=8, W=10",4,4,16,16,No
+2,Non-Increasing,"n=8, W=10",6,6,39,39,No
+3,Non-Increasing,"n=9, W=10",7,7,39,39,No
+4,Non-Increasing,"n=6, W=10",4,4,14,14,No
+5,Non-Increasing,"n=8, W=10",4,4,22,22,No
+6,Non-Increasing,"n=5, W=10",3,3,18,18,No
+7,Non-Increasing,"n=7, W=10",6,6,30,30,No
+8,Non-Increasing,"n=10, W=10",6,6,31,31,No
+9,Non-Increasing,"n=5, W=10",5,5,22,22,No
+10,Non-Increasing,"n=6, W=10",5,5,28,28,No
+11,Increasing,"n=6, W=10",4,4,20,20,No
+12,Increasing,"n=8, W=10",5,5,26,26,No
+13,Increasing,"n=6, W=10",4,4,14,14,No
+14,Increasing,"n=5, W=10",4,4,26,26,No
+15,Increasing,"n=10, W=10",7,7,42,42,No
+16,Increasing,"n=10, W=10",8,8,47,47,No
+17,Increasing,"n=9, W=10",6,6,39,39,No
+18,Increasing,"n=6, W=10",5,5,30,30,No
+19,Increasing,"n=10, W=10",7,7,36,36,No
+20,Increasing,"n=9, W=10",4,4,28,28,No
+21,Unimodal Valley,"n=5, W=10",3,3,5,5,No
+22,Unimodal Valley,"n=7, W=10",7,7,28,28,No
+23,Unimodal Valley,"n=8, W=10",6,6,9,9,No
+24,Unimodal Valley,"n=9, W=10",3,3,7,7,No
+25,Unimodal Valley,"n=8, W=10",6,6,26,26,No
+26,Unimodal Valley,"n=9, W=10",5,5,6,6,No
+27,Unimodal Valley,"n=6, W=10",5,5,22,22,No
+28,Unimodal Valley,"n=5, W=10",4,4,6,6,No
+29,Unimodal Valley,"n=8, W=10",7,7,11,11,No
+30,Unimodal Valley,"n=9, W=10",8,8,8,8,No
+31,Unimodal Peak,"n=10, W=10",7,7,7,7,No
+32,Unimodal Peak,"n=7, W=10",6,6,6,6,No
+33,Unimodal Peak,"n=9, W=10",6,6,6,6,No
+34,Unimodal Peak,"n=10, W=10",7,7,25,25,No
+35,Unimodal Peak,"n=7, W=10",6,6,39,39,No
+36,Unimodal Peak,"n=8, W=10",5,5,5,5,No
+37,Unimodal Peak,"n=7, W=10",5,5,8,8,No
+38,Unimodal Peak,"n=6, W=10",3,3,18,17,Yes
+39,Unimodal Peak,"n=7, W=10",4,4,14,12,Yes
+40,Unimodal Peak,"n=5, W=10",4,4,8,7,Yes
+41,Random (1-100),"n=7, W=100",4,4,217,218,Yes
+42,Random (1-100),"n=8, W=100",6,6,296,296,No
+43,Random (1-100),"n=5, W=100",2,2,128,128,No
+44,Random (1-100),"n=9, W=100",6,6,352,341,Yes
+45,Random (1-100),"n=7, W=100",5,5,237,237,No
+46,Random (1-100),"n=6, W=100",6,6,391,391,No
+47,Random (1-100),"n=7, W=100",5,5,320,320,No
+48,Random (1-100),"n=6, W=100",6,6,344,344,No
+49,Random (1-100),"n=7, W=100",4,4,277,277,No
+50,Random (1-100),"n=6, W=100",5,5,255,255,No
+51,Random (1-25),"n=8, W=25",5,5,88,88,No
+52,Random (1-25),"n=8, W=25",7,7,88,88,No
+53,Random (1-25),"n=10, W=25",7,7,77,77,No
+54,Random (1-25),"n=5, W=25",2,2,44,44,No
+55,Random (1-25),"n=6, W=25",5,5,50,50,No
+56,Random (1-25),"n=5, W=25",3,3,30,30,No
+57,Random (1-25),"n=8, W=25",7,7,87,87,No
+58,Random (1-25),"n=6, W=25",3,3,58,58,No
+59,Random (1-25),"n=9, W=25",3,3,52,52,No
+60,Random (1-25),"n=9, W=25",7,7,102,102,No

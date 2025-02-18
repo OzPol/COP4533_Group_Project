@@ -29,8 +29,8 @@ def program1(n: int, W: int, heights: List[int], widths: List[int]) -> Tuple[int
 
 
     # Constraint for ProblemS1: heights are monotonically non-increasing
-    if not all(heights[i] >= heights[i + 1] for i in range(n - 1)):
-        raise ValueError("Heights must be in non-increasing order for ProblemS1.")
+    # if not all(heights[i] >= heights[i + 1] for i in range(n - 1)):
+    #    raise ValueError("Heights must be in non-increasing order for ProblemS1.")
     
     platforms = []          # Store (max_height, num_statues) for each platform
     current_platform = []

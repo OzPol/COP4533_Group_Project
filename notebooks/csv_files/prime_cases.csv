@@ -1,0 +1,11 @@
+Scenario,n,Max Platform Width,Heights,Widths,Expected
+Prime Heights,8,10,"[2, 3, 5, 7, 11, 13, 19, 23]","[3, 9, 5, 2, 3, 3, 1, 8]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,5,10,"[7, 11, 13, 19, 29]","[8, 2, 6, 3, 3]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,7,10,"[3, 5, 11, 13, 17, 19, 23]","[10, 1, 2, 9, 9, 2, 5]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,9,10,"[2, 3, 5, 7, 11, 13, 19, 23, 29]","[2, 10, 10, 8, 7, 9, 2, 5, 7]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,10,10,"[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]","[10, 5, 1, 8, 8, 7, 10, 3, 2, 5]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,9,10,"[2, 3, 5, 7, 13, 17, 19, 23, 29]","[10, 1, 6, 9, 9, 10, 6, 6, 7]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,9,10,"[2, 3, 5, 7, 11, 13, 17, 23, 29]","[4, 3, 2, 3, 4, 6, 7, 1, 6]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,8,10,"[2, 3, 7, 11, 13, 17, 23, 29]","[2, 6, 8, 5, 7, 7, 9, 5]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,10,10,"[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]","[2, 2, 10, 6, 6, 9, 10, 7, 7, 4]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
+Prime Heights,9,10,"[3, 5, 7, 11, 13, 17, 19, 23, 29]","[7, 5, 5, 7, 5, 8, 5, 4, 2]","Expected: TBD platforms, Total Height: TBD, Sculptures per Platform: TBD"
